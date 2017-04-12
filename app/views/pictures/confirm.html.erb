@@ -1,0 +1,10 @@
+<h3>以下の内容で送信する</h3>
+
+<%= form_for(@picture) do |f| %>
+<%= f.hidden_field :title %>
+<%= f.hidden_field :content %>
+
+<p>タイトル：<%= @picture.title %></p>
+<p>本文：<%= @picture.content %></p>
+<%= f.submit "登録する" %>
+<% end %>

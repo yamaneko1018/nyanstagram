@@ -1,8 +1,13 @@
+<p><%= notice %></p>
+
 <h1>投稿一覧</h1>
 
 <% @pictures.each do |picture| %>
     <p>タイトル:<%= picture.title %></p>
     <p>本文:<%= picture.content %></p>
+    <%= link_to "編集する", edit_picture_path(picture.id) %>
+    <%= link_to "削除する",picture_path(picture.id), method: :delete, 
+    data:{confirm: '本当に削除していいですか？'} %>
 <% end %>
 
 <%= link_to "新規投稿する", new_picture_path %>
