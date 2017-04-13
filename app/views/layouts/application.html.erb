@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Nyanstagram</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <header>
-      <%=link_to root_path do %>
-      <img class="logo" src="<%= asset_path "logo.png" %>">
-      <% end %>
-      <ul>
-      <li><%= link_to "トップページ",root_path %></li>
-      <li><%= link_to "投稿一覧",pictures_path %></li>
-  　　</ul> 
-  </header>
-
-<%= yield %>
-
-　<footer>
-    <p>運営会社Yamaneko株式会社</p>
-    <p>© 2015-2016 Copyright Yamaneko Corp.</p>
-  　</footer>
-</body>
+  <head>
+    <title>Nyanstagram</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header>
+        <%=link_to root_path do %>
+        <img class="logo" src="<%= asset_path "logo.png" %>">
+        <% end %>
+        <ul>
+        <li><%= link_to "トップページ",root_path %></li>
+        <li><%= link_to "投稿一覧",pictures_path %></li>
+        <% if user_signed_in? %>
+         <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+         <li><%= link_to 'ログアウト', destroy_user_session_path,method: :delete %></li>
+         <% else %>
+         <li><%= link_to 'ログイン',new_user_session_path %></li>
+         <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+         <% end %>
+    　　</ul> 
+    </header>
+  
+  <%= yield %>
+  
+  　<footer>
+      <p>運営会社Yamaneko株式会社</p>
+      <p>© 2015-2016 Copyright Yamaneko Corp.</p>
+    　</footer>
+  </body>
 </html>
