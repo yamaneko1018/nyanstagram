@@ -8,3 +8,9 @@
 <p>本文：<%= @picture.content %></p>
 <%= f.submit "登録する" %>
 <% end %>
+
+<%= form_for(@picture,url:new_picture_path,method:'get') do |f| %>
+<%= f.hidden_field :title %>
+<%= f.hidden_field :content %>
+<%= f.submit "戻る",name: 'back' %>
+<% end %>
