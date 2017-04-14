@@ -23,6 +23,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(pictures_params)
     if @picture.save
     redirect_to pictures_path, notice: "投稿しました！"
+    NoticeMailer.sendmail_picture(@picture).deliver
     else
     render 'new'
     end
