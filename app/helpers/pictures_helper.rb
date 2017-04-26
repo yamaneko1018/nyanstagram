@@ -6,4 +6,8 @@ module PicturesHelper
         picture_path
        end
     end
+    
+    def picture_img(user)
+        return image_tag(user.imageurl,alt:user.name)if user.imageurl?
+    end
 end

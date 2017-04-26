@@ -48,7 +48,7 @@ def destroy
   
   private
    def pictures_params
-     params.require(:picture).permit(:title, :content)
+     params.require(:picture).permit(:title, :content, :imageurl, :imageurl_cache)
    end
    def set_picture
      @picture = Picture.find(params[:id])
