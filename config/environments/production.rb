@@ -78,12 +78,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-config.action_mailer.default_url_options = {host:'https://whispering-basin-18648.herokuapp.com'}
+config.action_mailer.default_url_options = {host:'whispering-basin-18648.herokuapp.com'}
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
- user_name: ENV['app66591558@heroku.com'],
- password: ENV['hb8q0jqq5055'],
+ user_name: ENV["app66591558@heroku.com"],
+ password: ENV["hb8q0jqq5055"],
  domain: "heroku.com",
  address: "smtp.sendgrid.net",
  port: 587,
