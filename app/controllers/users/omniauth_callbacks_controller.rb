@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    def facebook
-     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
+  def facebook
+    # You need to implement the method below in your model (e.g. app/models/user.rb)
+    @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
 
     if @user.persisted?
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
@@ -9,9 +10,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
-    end
-    
-    def twitter
+  end
+
+  def twitter
     # You need to implement the method below in your model
     @user = User.find_for_twitter_oauth(request.env["omniauth.auth"], current_user)
 
