@@ -82,8 +82,8 @@ config.action_mailer.default_url_options = {host:'whispering-basin-18648.herokua
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
- user_name: ENV["app66591558@heroku.com"],
- password: ENV["hb8q0jqq5055"],
+ user_name: ENV['SENDGRID_USERNAME'],
+ password: ENV['SENDGRID_PASSWORD'],
  domain: "heroku.com",
  address: "smtp.sendgrid.net",
  port: 587,
